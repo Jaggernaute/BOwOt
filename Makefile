@@ -21,8 +21,7 @@ default_target: all
 # Build the sources to ninja.
 
 build_sources:
-
-	@ mysql -uroot -h127.0.0.1 -p${PASSWORD}< ./resources/seed.sql
+	@echo "${ARROW} Building sources"
 	@ if [ ! -d ${build_path} ]; then\
 	   mkdir -p ${build_path};\
 	fi
