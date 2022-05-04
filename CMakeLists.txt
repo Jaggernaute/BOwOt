@@ -1,61 +1,32 @@
-cmake_minimum_required(VERSION 3.21)
-project(bowot)
+# minimum CMake version required
+cmake_minimum_required(VERSION 3.15)
+# Project name, version and description
+project(bowot VERSION 1.0 DESCRIPTION "A discord bot")
 
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
-
-# Set the style of CMake output
-set(CMAKE_VERBOSE_MAKEFILE ON)
-set(CMAKE_COLOR_MAKEFILE ON)
-set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
-
+# Add DPP as dependency
 add_subdirectory(libs/DPP)
+add_subdirectory(libs/cpp-dotenv)
+# in the `libs/` directory
 
-#set the build type
-if(CMAKE_BUILD_TYPE)
-  message(STATUS "CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
-else()
-  set(CMAKE_BUILD_TYPE Debug)
-  message(STATUS "CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
-endif()
-
-message("Cmake logs: ")
-
-#set the resource compiler
-if(CMAKE_AUTORCC)
-  message(STATUS "CMAKE_AUTORCC: ${CMAKE_AUTORCC}")
-else()
-  set(CMAKE_AUTORCC ON)
-  message(STATUS "CMAKE_AUTORCC: ${CMAKE_AUTORCC}")
-endif()
-
-find_package(
-    DPP
-    REQUIRED
-)
-
-# check if the tests are enabled
-if(CMAKE_TESTING_ENABLED)
-  message(STATUS "Testing enabled")
-else()
-  if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(CMAKE_TESTING_ENABLED on)
-    if(NOT(CMAKE_TESTING_ENABLED))
-      message(STATUS "Failed to enable testing")
-    else()
-      message(STATUS "Testing enabled")
-        add_subdirectory(test)
-    endif()
-  else()
-    message(
-            STATUS
-            "CMake is in '${CMAKE_BUILD_TYPE}' mode, testing is disabled."
-    )
-  endif()
-endif()
-
+# Create an executable
 add_executable(${PROJECT_NAME}
-        main.cpp
-)
+        src/main.cpp
+        # your others files...
+        include/hash.hpp)
+
+# Linking libraries
+target_link_libraries(${PROJECT_NAME}
+        dpp
+        cpp_dotenv
+        )
+
+# Specify includes
+target_include_directories(${PROJECT_NAME} PRIVATE
+        libs/DPP/include
+        )
+
+# Set C++ version
+set_target_properties(${PROJECT_NAME} PROPERTIES
+        CXX_STANDARD 17 # or 20 if you want something more recent
+        CXX_STANDARD_REQUIRED ON
+        )

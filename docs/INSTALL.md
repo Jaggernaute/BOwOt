@@ -9,7 +9,7 @@ pacman -S mariadb libmariadbclient mariadb-clients
 
 After installation, you have to set some base configuration with this command.
 ```sh
-mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+mysql_install_db --user=mysql --basedir=/usr --datadir=/var/libs/mysql
 ```
 
 As you guess, you need to start and enable the service.

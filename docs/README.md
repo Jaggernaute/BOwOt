@@ -18,7 +18,7 @@
   </a>
 
 <h3 align="center">
-    Powa Bonk
+    
     <a href="https://github.com/Jaggernaute/PowaBonk/actions/workflows/cmake.yml"><img align="top" src="https://github.com/Jaggernaute/PowaBonk/actions/workflows/cmake.yml/badge.svg"/></a>
 </h3>
 

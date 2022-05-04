@@ -52,7 +52,7 @@ compile_quiet:
 # Run the app (from the newly created binary)
 run:
 	@ echo -e "\n${ARROW} Running..."
-	./${build_path}powa_bonk
+	${build_path}bowot
 	@ echo -e "[${CL_GREEN}OK${CL_RESET}] Running"
 
 

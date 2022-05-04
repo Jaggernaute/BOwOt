@@ -26,11 +26,3 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 
 enable_testing(true)
-
-add_executable(
-        sql_tests
-        sql_tests.hpp
-        ../resources/resources.qrc
-)
-add_test(NAME sql_tests COMMAND sql_tests)
-target_link_libraries(sql_tests PRIVATE Qt6::Test)
