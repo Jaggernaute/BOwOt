@@ -13,7 +13,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Jaggernaute/PowaBonk">
+  <a href="https://github.com/Jaggernaute/Bowot">
     <img src="blobs/logo.png" alt="Logo" height="80">
   </a>
 
