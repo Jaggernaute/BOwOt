@@ -12,7 +12,7 @@ add_subdirectory(libs/cpp-dotenv)
 add_executable(${PROJECT_NAME}
         src/main.cpp
         # your others files...
-        include/hash.hpp)
+        include/hash.hpp include/commands/commands.h include/commands/Flan.hpp)
 
 # Linking libraries
 target_link_libraries(${PROJECT_NAME}

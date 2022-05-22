@@ -1,7 +1,10 @@
 #include "../libs/DPP/include/dpp/dpp.h"
 #include "../libs/cpp-dotenv/include/dotenv.h"
 
+#include "../include/commands/Flan.hpp"
+
 #define UNUSED(expr) (void)(expr)
+#define COMMAND event.command.get_command_name()
 
 using namespace dotenv;
 
@@ -17,10 +20,10 @@ auto main() -> int {
     bot.on_log(dpp::utility::cout_logger());
 
     bot.on_interaction_create([=](const dpp::interaction_create_t& event) {
-        if (event.command.get_command_name() == "ping") {
+        if (COMMAND == "ping") {
             event.reply("pong");
-        } else if (event.command.get_command_name() == "flan") {
-            event.reply("FLAAAAAAAAAAAAAAAAAAAAAAAN !");
+        } else if (COMMAND == "flan") {
+            flan(event);
         }
     });
 
